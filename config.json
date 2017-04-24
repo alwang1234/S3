@@ -39,7 +39,9 @@
     },
     "metadataClient": {
         "host": "localhost",
-        "port": 9990
+        "port": 9990,
+        "restEnabled": true,
+        "restPort": 9992
     },
     "dataClient": {
         "host": "localhost",
@@ -52,5 +54,9 @@
     "dataDaemon": {
         "bindAddress": "localhost",
         "port": 9991
+    },
+    "recordLog": {
+        "enabled": true,
+        "recordLogName": "main"
     }
 }
