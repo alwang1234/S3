@@ -14,17 +14,18 @@ if (config.backends.data === 'file' ||
      */
     const dataPath = process.env.S3DATAPATH ?
               process.env.S3DATAPATH : `${__dirname}/localData`;
-    const restServer = new arsenal.network.rest.RESTServer(
-        { port: config.dataDaemon.port,
+    const dataServer = new arsenal.network.rest.RESTServer(
+        { bindAddress: config.dataDaemon.bindAddress,
+          port: config.dataDaemon.port,
           dataStore: new arsenal.storage.data.file.DataFileStore(
               { dataPath, log: config.log }),
           log: config.log });
-    restServer.setup(err => {
+    dataServer.setup(err => {
         if (err) {
             logger.error('Error initializing REST data server',
                          { error: err });
             return;
         }
-        restServer.start();
+        dataServer.start();
     });
 }

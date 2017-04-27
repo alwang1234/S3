@@ -2,7 +2,7 @@
 require('babel-core/register');
 
 const config = require('./lib/Config.js').default;
-const MetadataServer =
+const MetadataFileServer =
           require('arsenal').storage.metadata.MetadataFileServer;
 
 if (config.backends.metadata === 'file') {
@@ -13,8 +13,10 @@ if (config.backends.metadata === 'file') {
      */
     const metadataPath = process.env.S3METADATAPATH ?
               process.env.S3METADATAPATH : `${__dirname}/localMetadata`;
-    const mdServer = new MetadataServer(
-        { metadataPath, metadataPort: config.metadataDaemon.port,
+    const mdServer = new MetadataFileServer(
+        { bindAddress: config.metadataDaemon.bindAddress,
+          port: config.metadataDaemon.port,
+          path: metadataPath,
           log: config.log });
     mdServer.startServer();
 }
