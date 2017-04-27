@@ -130,5 +130,5 @@ test:
     # Run S3 with multiple data backends ; run multiple_backend_test
     - S3BACKEND=mem S3DATA=multiple npm run start_dmd
             > $CIRCLE_ARTIFACTS/server_multiple_data_backends.txt
-        & bash wait_for_local_port.bash 9990 40
+        & bash wait_for_local_port.bash 9991 40
         && npm run multiple_backend_test
