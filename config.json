@@ -1,7 +1,7 @@
 {
     "port": 8000,
     "listenOn": [],
-    "replicationGroupToken": "RG001",
+    "replicationGroupId": "RG001",
     "restEndpoints": {
         "localhost": "file",
         "127.0.0.1": "file",

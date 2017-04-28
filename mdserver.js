@@ -9,7 +9,7 @@ if (config.backends.metadata === 'file') {
         { metadataPath: config.filePaths.metadataPath,
           metadataPort: config.metadataDaemon.port,
           log: config.log,
-          versioning: { siteId: config.replicationGroupToken },
+          versioning: { replicationGroupId: config.replicationGroupId },
         });
     mdServer.startServer();
 }
