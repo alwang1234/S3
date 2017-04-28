@@ -67,7 +67,7 @@ describe('putObjectTagging API', () => {
 
     afterEach(() => cleanup());
 
-    it('should update a object\'s metadata with tags resource', done => {
+    it('should update an object\'s metadata with tags resource', done => {
         const taggingUtil = new TaggingConfigTester();
         const testObjectPutTaggingRequest = taggingUtil
             .createObjectTaggingRequest('PUT', bucketName, objectName);
