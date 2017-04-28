@@ -6,17 +6,10 @@ const MetadataFileServer =
           require('arsenal').storage.metadata.MetadataFileServer;
 
 if (config.backends.metadata === 'file') {
-    /**
-     * Configure the file path for metadata if using the file backend.
-     * If no path provided, uses data and metadata at the root of the
-     * S3 project directory
-     */
-    const metadataPath = process.env.S3METADATAPATH ?
-              process.env.S3METADATAPATH : `${__dirname}/localMetadata`;
     const mdServer = new MetadataFileServer(
         { bindAddress: config.metadataDaemon.bindAddress,
           port: config.metadataDaemon.port,
-          path: metadataPath,
+          path: config.metadataDaemon.metadataPath,
           log: config.log });
     mdServer.startServer();
 }
